@@ -1,5 +1,6 @@
 package com.xw.repo;
 
+import android.annotation.SuppressLint;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Environment;
@@ -18,6 +19,7 @@ class BubbleUtils {
     private static Properties sProperties = new Properties();
     private static Boolean miui;
 
+    @SuppressLint("PrivateApi")
     static boolean isMIUI() {
         if (miui != null) {
             return miui;

@@ -22,7 +22,6 @@ import android.os.Parcelable;
 import android.support.annotation.ColorInt;
 import android.support.annotation.IntDef;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
 import android.util.AttributeSet;
 import android.util.SparseArray;
 import android.view.Gravity;
@@ -70,8 +69,8 @@ public class BubbleSeekBar extends View {
     private int mSecondTrackSize; // height of left-track(on the left of thumb)
     private int mThumbRadius; // radius of thumb
     private int mThumbRadiusOnDragging; // radius of thumb when be dragging
-    private int mTrackColor; // color of right-track
-    private int mSecondTrackColor; // color of left-track
+    private int mTrackColor = 0XFF607D8B; // color of right-track
+    private int mSecondTrackColor = 0xffFF9800; // color of left-track
     private int mThumbColor; // color of thumb
     @ColorInt
     private int mThumbStrokeColor; // color of thumb stroke
@@ -155,10 +154,8 @@ public class BubbleSeekBar extends View {
         mThumbRadiusOnDragging = a.getDimensionPixelSize(R.styleable.BubbleSeekBar_bsb_thumb_radius_on_dragging,
                 mSecondTrackSize * 2);
         mSectionCount = a.getInteger(R.styleable.BubbleSeekBar_bsb_section_count, 10);
-        mTrackColor = a.getColor(R.styleable.BubbleSeekBar_bsb_track_color,
-                ContextCompat.getColor(context, R.color.colorPrimary));
-        mSecondTrackColor = a.getColor(R.styleable.BubbleSeekBar_bsb_second_track_color,
-                ContextCompat.getColor(context, R.color.colorAccent));
+        mTrackColor = a.getColor(R.styleable.BubbleSeekBar_bsb_track_color, mTrackColor);
+        mSecondTrackColor = a.getColor(R.styleable.BubbleSeekBar_bsb_second_track_color, mSecondTrackColor);
         mThumbColor = a.getColor(R.styleable.BubbleSeekBar_bsb_thumb_color, mSecondTrackColor);
         mThumbStrokeColor = a.getColor(R.styleable.BubbleSeekBar_bsb_thumb_stroke_color, mSecondTrackColor);
         mThumbStrokeWidth = a.getDimensionPixelSize(R.styleable.BubbleSeekBar_bsb_thumb_stroke_width, mThumbStrokeWidth);
@@ -1259,7 +1256,7 @@ public class BubbleSeekBar extends View {
         invalidate();
     }
     /////// Api ends ///////////////////////////////////////////////////////////////////////////////
-    
+
     @Override
     protected Parcelable onSaveInstanceState() {
         Bundle bundle = new Bundle();
