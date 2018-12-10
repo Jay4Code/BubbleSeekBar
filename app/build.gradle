@@ -20,8 +20,8 @@ android {
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-//    implementation project(':bubbleseekbar')
+    implementation project(':bubbleseekbar')
 
-    implementation 'com.xw.repo:bubbleseekbar:3.19.01-lite'
+//    implementation 'com.xw.repo:bubbleseekbar:3.19.01-lite'
     implementation dependence.design
 }
