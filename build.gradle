@@ -2,12 +2,13 @@
 
 buildscript {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "https://dl.google.com/dl/android/maven2/" }
         jcenter()
-        google()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.novoda:bintray-release:0.5.0'
+        classpath 'com.android.tools.build:gradle:3.1.4'
+        classpath 'com.novoda:bintray-release:0.8.0'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -16,8 +17,9 @@ buildscript {
 
 allprojects {
     repositories {
+        maven { url 'http://maven.aliyun.com/nexus/content/groups/public/' }
+        maven { url "https://dl.google.com/dl/android/maven2/" }
         jcenter()
-        google()
     }
 
     tasks.withType(Javadoc) {
@@ -28,4 +30,21 @@ allprojects {
 
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+ext {
+    config = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.3",
+            minLibSdkVersion : 14,
+            minSdkVersion    : 16,
+            targetSdkVersion : 27
+    ]
+
+    APPCOMPAT_SUPER_VERSION = "27.1.1"
+
+    dependence = [
+            "appcompatV7": "com.android.support:appcompat-v7:${APPCOMPAT_SUPER_VERSION}",
+            "design"     : "com.android.support:design:${APPCOMPAT_SUPER_VERSION}"
+    ]
 }
