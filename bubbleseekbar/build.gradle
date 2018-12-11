@@ -27,8 +27,8 @@ dependencies {
 
 apply plugin: 'com.novoda.bintray-release'
 publish {
-    userOrg = 'xiaojie'
-    repoName= 'The_third_rep'
+    userOrg = 'lga' // 组织，默认会创建一个与用户名同名的组织
+    repoName= 'ThirdRep' // 仓库名
     groupId = 'com.xw.repo'
     artifactId = 'bubbleseekbar'
     publishVersion = VERSION_NAME
