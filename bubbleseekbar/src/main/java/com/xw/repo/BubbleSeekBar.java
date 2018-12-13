@@ -1094,6 +1094,13 @@ public class BubbleSeekBar extends View {
         }
     }
 
+    public void setMinMax(float min, float max) {
+        mMin = min;
+        mMax = max;
+        initConfigByPriority();
+        postInvalidate();
+    }
+
     public float getMin() {
         return mMin;
     }

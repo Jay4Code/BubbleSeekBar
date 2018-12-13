@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.xw.repo.BubbleSeekBar;
+
 /**
  * DemoFragment2
  * <p>
@@ -23,6 +25,10 @@ public class DemoFragment2 extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_demo_2, container, false);
+        View view = inflater.inflate(R.layout.fragment_demo_2, container, false);
+        BubbleSeekBar seekBar = view.findViewById(R.id.seek_bar);
+        seekBar.setMinMax(0, 120);
+        seekBar.setProgress(90);
+        return view;
     }
 }
